@@ -22,21 +22,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="201" id="6xp-ar-rpO" customClass="PhotoTableViewCell" customModule="Tumblr" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="201" id="6xp-ar-rpO" customClass="PhotoTableViewCell" customModule="Tumblr" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6xp-ar-rpO" id="Hl6-yf-VVv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="200.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="MfK-CE-5Z5">
-                                                    <rect key="frame" x="135" y="0.0" width="144" height="201"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="MfK-CE-5Z5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="381" height="210"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postImage" destination="MfK-CE-5Z5" id="P8X-Pu-HMW"/>
+                                            <segue destination="oK2-Ze-ojG" kind="push" id="MdA-o4-Grc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -52,6 +53,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="674" y="152"/>
+        </scene>
+        <!--Photo Detail-->
+        <scene sceneID="9Ho-9l-MEJ">
+            <objects>
+                <viewController id="oK2-Ze-ojG" customClass="PhotoDetailsViewController" customModule="Tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f7M-Xc-6mn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="ZVx-ES-h8L">
+                                <rect key="frame" x="0.0" y="63" width="414" height="673"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photo Detail" id="6vu-A8-MoE"/>
+                    <connections>
+                        <outlet property="photo" destination="ZVx-ES-h8L" id="FIx-ug-9h7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2s-67-JIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1276" y="152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kdl-UF-Adz">

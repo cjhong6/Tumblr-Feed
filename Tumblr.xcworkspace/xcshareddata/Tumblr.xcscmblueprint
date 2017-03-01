@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C173942C7A76C3BFC3EADCAB07BDBF17D949A1EB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CC68CE75AFB92E5E46FB5E26370EE9AE15C9E8E9" : 9223372036854775807,
+    "C173942C7A76C3BFC3EADCAB07BDBF17D949A1EB" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6A1E9426-A630-40CA-B001-2B0EC301D7D5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CC68CE75AFB92E5E46FB5E26370EE9AE15C9E8E9" : "",
+    "C173942C7A76C3BFC3EADCAB07BDBF17D949A1EB" : "Tumblr\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Tumblr",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Tumblr.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cjhong6\/Tumblr-Feed.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C173942C7A76C3BFC3EADCAB07BDBF17D949A1EB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cjhong6\/iWill-Tip.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CC68CE75AFB92E5E46FB5E26370EE9AE15C9E8E9"
+    }
+  ]
+}
