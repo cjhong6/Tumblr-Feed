@@ -15,6 +15,7 @@ class PhotosViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var tableView: UITableView!
     var isMoreDataLoading = false
     var loadingMoreView:InfiniteScrollActivityView?
+    let CellIdentifer = "PhotoCell", HeaderViewIdentifier = "TableViewHeaderView"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,9 @@ class PhotosViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = 240
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifer)
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
+        
         makeAPICall()
         
         // Set up Infinite Scroll loading indicator
@@ -47,14 +50,20 @@ class PhotosViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.didReceiveMemoryWarning()
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    //how many section
+    func numberOfSections(in tableView: UITableView) -> Int {
         return posts.count
+    }
+    
+    //how many row in the section
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 1
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoTableViewCell
-        let post = posts[indexPath.row]
-        
+        let post = posts[indexPath.section]
+
         if let photos = post["photos"] as? [NSDictionary]{
             //photos returns a array of dictionary
             //Use valueForKeyPath to navigate through multiple nested dictionary keys
@@ -69,6 +78,11 @@ class PhotosViewController: UIViewController,UITableViewDelegate,UITableViewData
             print("the photo is null")
         }
         return cell
+    }
+    
+    //set the header height
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -141,5 +155,32 @@ class PhotosViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             makeAPICall()
         }
+    }
+    
+    //set the header
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        headerView.backgroundColor = UIColor(white: 1, alpha: 0.9)
+        
+        let profileView = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+        profileView.clipsToBounds = true
+        profileView.layer.cornerRadius = 15;
+        profileView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).cgColor
+        profileView.layer.borderWidth = 1;
+        
+        // Set the avatar
+        profileView.setImageWith(NSURL(string:"https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/avatar")! as URL)
+        headerView.addSubview(profileView)
+        
+        
+        // Add a UILabel for the date here
+        // Use the section number to get the right URL
+        let post = posts[section]
+        let date = post["date"]
+        let label = UILabel(frame: CGRect(x: 40, y: 0, width: 320, height: 50))
+        label.text = date as! String?
+        headerView.addSubview(label)
+        
+        return headerView
     }
 }
